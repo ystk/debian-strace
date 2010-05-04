@@ -59,11 +59,11 @@ binary-indep:
 
 binary-arch: build
 	test -f build-stamp || make $(MFLAGS) -f debian/rules build
-
+	
 	# prepare 64bit executable and manpage, if it has been built
 	test -f build64-stamp && ( mv build64/strace build64/strace64 ; \
 		cp strace.1 strace64.1 ) || true
-
+	
 	dh_testdir -s
 	dh_testroot -s
 	dh_installdirs -s
